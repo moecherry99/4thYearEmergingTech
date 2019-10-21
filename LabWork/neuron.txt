@@ -1,0 +1,58 @@
+import keras as kr
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.rcParams['figure.figsize'] = (10, 10)
+
+m = kr.models.Sequential()
+
+m.add(kr.layers.Dense(1, input_dim=1, activation="linear", kernel_initializer='ones', bias_initializer='zeros'))
+
+m.compile(loss="mean_squared_error", optimizer="sgd")
+"""
+x = np.arange(0.0, 10.0, 1)
+
+y = m.predict(x)
+
+plt.plot(x, y, 'k.')
+
+m = kr.models.Sequential()
+
+m.add(kr.layers.Dense(1, input_dim=1, activation="linear", kernel_initializer=kr.initializers.Constant(value=2), bias_initializer=kr.initializers.Constant(value=1)))
+
+m.compile(loss="mean_squared_error", optimizer="sgd")
+
+x = np.arange(0.0, 10.0, 1)
+
+y = m.predict(x)
+
+plt.plot(x, y, 'k.')
+
+m = kr.models.Sequential()
+
+m.add(kr.layers.Dense(2, input_dim=1, activation="linear"))
+
+m.add(kr.layers.Dense(1, activation="linear", kernel_initializer=kr.initializers.Constant(value=1), bias_initializer=kr.initializers.Constant(value=0)))
+
+m.layers[0].set_weights([np.matrix([2, 3]), np.array([-5, -3])])
+
+m.compile(loss="mean_squared_error", optimizer="sgd")
+
+x = np.arange(0.0, 10.0, 1)
+
+y = m.predict(x)
+
+plt.plot(x, y, 'k.')
+
+m = kr.models.Sequential()
+
+m.add(kr.layers.Dense(1, input_dim=1, activation="sigmoid", kernel_initializer=kr.initializers.Constant(value=1), bias_initializer=kr.initializers.Constant(value=0)))
+
+m.compile(loss="mean_squared_error", optimizer="sgd")
+
+x = np.arange(-10.0, 10.0, 1)
+
+y = m.predict(x)
+
+plt.plot(x, y, 'k.')
+"""
