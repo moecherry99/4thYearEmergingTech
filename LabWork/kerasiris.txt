@@ -1,0 +1,16 @@
+# For building neural networks.
+import keras as kr
+
+# For interacting with data sets.
+import pandas as pd
+
+# For encoding categorical variables.
+import sklearn.preprocessing as pre
+
+# For splitting into training and test sets.
+import sklearn.model_selection as mod
+
+# Load the iris data set from a URL.
+df = pd.read_csv("https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv")
+
+df
