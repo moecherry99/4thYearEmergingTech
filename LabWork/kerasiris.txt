@@ -14,3 +14,12 @@ import sklearn.model_selection as mod
 df = pd.read_csv("https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv")
 
 df
+"""
+# Encode the classes as above.
+encoder = pre.LabelBinarizer()
+encoder.fit(df['species'])
+outputs = encoder.transform(df['species'])
+
+outputs
+
+"""
