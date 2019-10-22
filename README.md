@@ -5,7 +5,7 @@
 Work on keras
 
 ### MNIST
-Work on MNIST
+Researched MNIST with C development using the Windows Subsystem (Linux). Reading in files and bytes.
 
 ### pandas
 Work on pandas
