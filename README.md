@@ -9,3 +9,6 @@ Researched MNIST with C development using the Windows Subsystem (Linux). Reading
 
 ### pandas
 Work on pandas
+
+### Flask
+Work on Flask
