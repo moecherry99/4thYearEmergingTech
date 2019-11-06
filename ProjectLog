@@ -21,8 +21,11 @@ To do 21st October
 3rd and 4th November
 -Flask videos and referenced pages from LearnOnline currently being researched.
 
-5th and 6th November
+5th
 -Fixed up Github repository to have proper directories on all files.
+
+6th November
+-First Flask app up and running, prints "Hello World" from Localhost:5000.
 
 
 
