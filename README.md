@@ -8,7 +8,7 @@ Work on keras
 Researched MNIST with C development using the Windows Subsystem (Linux). Reading in files and bytes.
 
 ### pandas
-Work on pandas
+Managing Databases with a series of exercises, grabbing data from saved files etc. and tutorial videos on how to make your own databases to import into your file.
 
 ### Flask
 Work on Flask
