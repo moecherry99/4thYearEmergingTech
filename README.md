@@ -11,4 +11,4 @@ Researched MNIST with C development using the Windows Subsystem (Linux). Reading
 Managing Databases with a series of exercises, grabbing data from saved files etc. and tutorial videos on how to make your own databases to import into your file.
 
 ### Flask
-Work on Flask
+File flaskr.py created, run in Linux Terminal using "python3 flaskr.py". Localhost:5000 in Chrome gives file contents "Hello World".
