@@ -1,1 +1,5 @@
+6th November
 
+-Created first Flask app from video on YouTube (Reference - https://www.youtube.com/watch?v=Wko_4EUf18E)
+
+-Run using cd mnt/c/users etc... in command line and "python3 flaskr.py" and open Localhost:5000 to view contents.
