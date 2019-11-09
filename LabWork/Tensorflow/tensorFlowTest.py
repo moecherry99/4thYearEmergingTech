@@ -1,3 +1,5 @@
+# Reference - https://realpython.com/numpy-tensorflow-performance/
+
 import tensorflow as tf
 
 def tf_descent(X_tf, d_tf, mu, N_epochs):
