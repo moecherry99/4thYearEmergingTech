@@ -1,3 +1,5 @@
+# Reference - https://nbviewer.jupyter.org/github/ianmcloughlin/jupyter-teaching-notebooks/blob/master/keras-and-iris.ipynb
+
 # For building neural networks.
 import keras as kr
 
