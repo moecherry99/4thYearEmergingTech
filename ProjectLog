@@ -33,7 +33,11 @@ To do 21st October
 
 11th November
 -Creating .html file to run with the flask app and predict drawings of numbers.
--Uploaded .html file with refence to -> "https://bensonruan.com/handwritten-digit-recognition-with-tensorflow-js/", will update and make into own personal canvas.
+-Uploaded .html file with refence to -> "https://bensonruan.com/handwritten-digit-recognition-with-tensorflow-js/", will update and make into own personal canvas
+
+TO DO 12th November - 17th November
+-Train models using MNIST dataset with keras and jupyter python packages. File is JS/html currently.
+
 
 
 
