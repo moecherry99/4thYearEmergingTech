@@ -40,6 +40,7 @@ TO DO 12th November - 17th November
 
 11th November 20:21pm onwards
 -Using Jupyter Notebook to practice model training with keras imports etc.
+-Get the image created in the Jupyter Notebook and somehow transfer it to the html application (through image saving) and get the Digit Recogniser to read the number in.
 
 
 
