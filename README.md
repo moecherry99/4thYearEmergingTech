@@ -2,7 +2,7 @@
 ## By Alex Cherry - G00347106
 
 ### keras
-Work on keras
+Neural networks created with keras (and Tensorflow). Jupyter Notebook uses keras to train the model created here (as seen in the model.ipynb file).
 
 ### MNIST
 Researched MNIST with C development using the Windows Subsystem (Linux). Reading in files and bytes.
