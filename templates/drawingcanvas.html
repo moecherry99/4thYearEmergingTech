@@ -1,1 +1,257 @@
-<!-- template until full upload -->
+<! DOCTYPE html>
+<!-- Alex Cherry G00347106 EmerTech drawingcanvas.html file-->
+
+<!-- Reference -> https://bensonruan.com/handwritten-digit-recognition-with-tensorflow-js/-->
+<html>
+	<head>
+
+	</head>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+
+    <body>
+
+		<div id="canvas_box" class="canvas-box"></div>
+		<button id="predict-button" class="btn btn-dark" style = "position:absolute; top:80%; left: 15%">Predict</button>
+		<button id="clear-button" style = "position:absolute; top:80%; left: 10%">Clear</button>
+
+		<p id = "prediction-text" style = "position:absolute; top:90%; left: 15%">Predictions:  </p>
+		<script src="js/digit-recognition.js"></script>
+    </body>
+	<script type="text/javascript">
+		let model;
+		
+		// Width and Height of canvas
+		var canvasHeight = 300;
+		var canvasWidth = 300;
+		
+		// Colour of Canvas
+		var canvasStrokeStyle = "blue";
+		var canvasLineJoin = "round";
+		var canvasLineWidth = 10;
+		
+		// Background of Canvas
+		var canvasBackgroundColor = "black";
+		var canvasId = "canvas";
+		
+		var clickX = new Array();
+		var clickY = new Array();
+		var clickD = new Array();
+		var drawing;
+
+		var x = "black";
+		
+		// Line thickness
+		var lineThickness = 3;
+		var canvasBox = document.getElementById('canvas_box');
+		var canvas = document.createElement("canvas");
+		
+		canvas.setAttribute("width", canvasWidth);
+		canvas.setAttribute("height", canvasHeight);
+		canvas.setAttribute("id", canvasId);
+		canvas.style.backgroundColor = canvasBackgroundColor;
+		canvasBox.appendChild(canvas);
+
+		// checks if browser supports html 
+		if(typeof G_vmlCanvasManager != 'undefined') {
+			canvas = G_vmlCanvasManager.initElement(canvas);
+		}
+ 
+		ctx = canvas.getContext("2d");
+			
+		// Reference ->https://api.jquery.com/category/events/mouse-events/
+		$("#canvas").mousedown(function(e) {
+			var rect = canvas.getBoundingClientRect();
+			var mouseX = e.clientX- rect.left;;
+			var mouseY = e.clientY- rect.top;
+			drawing = true;
+			addUserGesture(mouseX, mouseY);
+			drawOnCanvas();
+		});
+ 
+		canvas.addEventListener("touchstart", function (e) {
+			if (e.target == canvas) {
+				e.preventDefault();
+			}
+		
+			var rect = canvas.getBoundingClientRect();
+			var touch = e.touches[0];
+		
+			var mouseX = touch.clientX - rect.left;
+			var mouseY = touch.clientY - rect.top;
+		
+			drawing = true;
+			addUserGesture(mouseX, mouseY);
+			drawOnCanvas();
+		
+		}, false);
+ 
+
+		$("#canvas").mousemove(function(e) {
+			if(drawing) {
+				var rect = canvas.getBoundingClientRect();
+				var mouseX = e.clientX- rect.left;;
+				var mouseY = e.clientY- rect.top;
+				addUserGesture(mouseX, mouseY, true);
+				drawOnCanvas();
+			}
+		});
+
+		canvas.addEventListener("touchmove", function (e) {
+			if (e.target == canvas) {
+				e.preventDefault();
+			}
+			if(drawing) {
+				var rect = canvas.getBoundingClientRect();
+				var touch = e.touches[0];
+		
+				var mouseX = touch.clientX - rect.left;
+				var mouseY = touch.clientY - rect.top;
+		
+				addUserGesture(mouseX, mouseY, true);
+				drawOnCanvas();
+			}
+		}, false);
+		
+
+		
+		//---------------------
+		// TOUCH END function
+		//---------------------
+		canvas.addEventListener("touchend", function (e) {
+			if (e.target == canvas) {
+				e.preventDefault();
+			}
+			drawing = false;
+		}, false);
+		
+		//-------------------
+		// MOUSE UP function
+		//-------------------
+		$("#canvas").mouseup(function(e) {
+			drawing = false;
+		});
+		
+		
+		//-----------------------
+		// TOUCH LEAVE function
+		//-----------------------
+		canvas.addEventListener("touchleave", function (e) {
+			if (e.target == canvas) {
+				e.preventDefault();
+			}
+			drawing = false;
+		}, false);
+		
+		//----------------------
+		// MOUSE LEAVE function
+		//----------------------
+		$("#canvas").mouseleave(function(e) {
+			drawing = false;
+		});
+		
+		
+		//--------------------
+		// ADD CLICK function
+		//--------------------
+		function addUserGesture(x, y, dragging) {
+			clickX.push(x);
+			clickY.push(y);
+			clickD.push(dragging);
+		}
+		
+		//-------------------
+		// RE DRAW function
+		//-------------------
+		function drawOnCanvas() {
+			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+		
+			ctx.strokeStyle = canvasStrokeStyle;
+			ctx.lineJoin    = canvasLineJoin;
+			ctx.lineWidth   = canvasLineWidth;
+		
+			for (var i = 0; i < clickX.length; i++) {
+				ctx.beginPath();
+				if(clickD[i] && i) {
+					ctx.moveTo(clickX[i-1], clickY[i-1]);
+				} else {
+					ctx.moveTo(clickX[i]-1, clickY[i]);
+				}
+				ctx.lineTo(clickX[i], clickY[i]);
+				ctx.closePath();
+				ctx.stroke();
+			}
+		}
+		
+		// predict button
+		$("#predict-button").click(async function () {
+			// gets what you've drawn on the image
+			console.log("in predict function")
+			var imageData = canvas.toDataURL();
+
+			// preprocess the canvas
+			let tensor = preprocessCanvas(canvas);
+			
+			console.log(tensor);
+			// make predictions on the preprocessed image tensor
+			let predictions = await model.predict(tensor).data();
+
+			console.log(predictions);
+		
+			// get the model's prediction results
+			let results = Array.from(predictions);
+		
+			displayLabel(results)
+			// display the predictions in chart
+			console.log(results)
+		});
+		
+		// clear button
+		$("#clear-button").click(async function () {
+			ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+			clickX = new Array();
+			clickY = new Array();
+			clickD = new Array();
+			$(".prediction-text").empty();
+			$("#result_box").addClass('d-none');
+		
+		});
+		async function loadModel() {
+			console.log("in load model function")
+			// clear the model variable
+			model = undefined; 
+			// load the model using a HTTPS request (where you have stored your model files)
+			model = await tf.loadLayersModel("static/models/model.json");
+		}
+ 
+		loadModel();
+
+		function preprocessCanvas(image) {
+			// resize the input image to target size of (1, 28, 28)
+			let tensor = tf.browser.fromPixels(image)
+				.resizeNearestNeighbor([28, 28])
+				.mean(2)
+				.expandDims(2)
+				.expandDims()
+				.toFloat();
+			return tensor.div(255.0);
+		}
+
+		function displayLabel(data) {
+			var max = data[0];
+			var maxIndex = 0;
+		
+			for (var i = 1; i < data.length; i++) {
+				if (data[i] > max) {
+					maxIndex = i;
+					max = data[i];
+				}
+			}
+
+			console.log(maxIndex);
+			document.getElementById("prediction-text").innerHTML = maxIndex;
+		}
+	</script>
+	
+	
+</html>
