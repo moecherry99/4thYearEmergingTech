@@ -20,4 +20,30 @@ Command for Ubuntu Terminal - cd /, then cd mnt/c/users/moech/desktop/4thYear/Em
 ### For user use
 Follow the above instructions while navigating to your directory in which you saved the file and run python3 flaskr.py and then localhost:5000 in browser
 
+### References
+
+https://www.youtube.com/watch?v=Wko_4EUf18E - Flask running first app (video on YouTube)
+
+Handwritten digit recognition with Tensorflow
+https://www.digitalocean.com/community/tutorials/how-to-build-a-neural-network-to-recognize-handwritten-digits-with-tensorflow
+
+Handwritten digit recognition with keras and mnist
+https://nextjournal.com/gkoehler/digit-recognition-with-keras
+
+StackOverflow digit drawing helper in html5
+https://stackoverflow.com/questions/2368784/draw-on-html5-canvas-using-a-mouse
+
+html5 helper and js 
+https://github.com/bensonruan/Hand-Written-Digit-Recognition
+https://bensonruan.com/handwritten-digit-recognition-with-tensorflow-js/
+
+Mouse events
+https://api.jquery.com/category/events/mouse-events/
+
+Py, TF, Keras tutorial with Neural Networks
+https://www.youtube.com/watch?v=wQ8BIBpya2k&t=29s
+
+Image recognition with MNIST dataset
+https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d
+
 
