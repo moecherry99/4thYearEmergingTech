@@ -2,32 +2,54 @@
 
 #include <stdio.h>
 #include <stdint.h>
+int main(int argc, char *argv[])
+{
+    // opens files
+    
+    FILE *f = fopen("../files/t10k-images-idx3-ubyte", "rb"); // rb = read binary
+    FILE *labels = fopen("../files/t10k-labels-idx1-ubyte", "rb"); // rb = read binary
 
-int main(int argc, char (*argv[])){
-
-    FILE *f = fopen("t10k-images.idx3-ubyte", "rb");
-    uint8_t b = 0;
+    uint8_t b, lblB; 
     int i, j, k;
-    printf("No of bytes in an int : %d\n", sizeof(b));
 
-    for (int i = 0; i < 16; i++){
+    // reads 1 bit 
+    for(i = 0; i < 16; i++) 
+    {
         fread(&b, 1, 1, f);
-        printf("%02x\n", b);
-
+        printf("%02x ", b);
     }
+
     printf("\n");
 
-    for(k = 0; k < 3; k++){
-        for (i = 0; i < 28; i++){
-            for(j = 0; j < 28; j++){
+    // reads in first part of label file ../files/t10k-labels-idx1-ubyte
+    for(i = 0; i < 8; i ++)
+    {
+        fread(&lblB, 1, 1, labels);
+        printf("%02x ", lblB);
+    }
+
+    printf("\n");
+
+    for(k = 0; k < 3; k++)
+    {
+        fread(&lblB, 1, 1, labels);
+        printf("%02x \n", lblB);
+
+        for(i = 0; i < 28; i++ )
+        {
+            for(j = 0; j < 28; j++)
+            {
                 fread(&b, 1, 1, f);
-                printf("%s", (b > 127) ? "0" : ".");
+				// current bit = 127
+                printf("%s", (b > 127) ? "0" : "."); 
+                
             }
+
             printf("\n");
         }
         printf("\n");
     }
+    
     printf("\n");
-
     return 0;
 }
