@@ -49,6 +49,10 @@ TO DO 12th November - 17th November
 -Installing pip on computer caused problems but solution is underway.
 -Creating python file to run the model in.
 
+16th November (Midnight)
+-Installation not working for computer, going to run in Jupyter Notebook from here on.
+-Files are working and the canvas reads the trained model and can predict numbers. -> Reference : https://github.com/bensonruan/Hand-Written-Digit-Recognition
+
 
 
 
