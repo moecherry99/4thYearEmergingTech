@@ -20,6 +20,8 @@ Command for Ubuntu Terminal - cd /, then cd mnt/c/users/moech/desktop/4thYear/Em
 ### For user use
 Follow the above instructions while navigating to your directory in which you saved the file and run python3 flaskr.py and then localhost:5000 in browser
 
+## Errors 
+tensorflowjs-converter is not recognised. This means that the model.json/model.h5 files were taken from https://github.com/bensonruan/Hand-Written-Digit-Recognition
 ### References
 
 Flask running first app (video on YouTube)
