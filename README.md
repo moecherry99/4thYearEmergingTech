@@ -22,7 +22,8 @@ Follow the above instructions while navigating to your directory in which you sa
 
 ### References
 
-https://www.youtube.com/watch?v=Wko_4EUf18E - Flask running first app (video on YouTube)
+Flask running first app (video on YouTube)
+https://www.youtube.com/watch?v=Wko_4EUf18E 
 
 Handwritten digit recognition with Tensorflow
 https://www.digitalocean.com/community/tutorials/how-to-build-a-neural-network-to-recognize-handwritten-digits-with-tensorflow
@@ -45,5 +46,8 @@ https://www.youtube.com/watch?v=wQ8BIBpya2k&t=29s
 
 Image recognition with MNIST dataset
 https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d
+
+Converting file to model.json format
+https://www.tensorflow.org/js/guide/conversion
 
 
