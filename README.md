@@ -12,7 +12,6 @@ Managing Databases with a series of exercises, grabbing data from saved files et
 
 ### Flask
 flaskr.py application paired with a html file called drawingcanvas.html which opens the application in web browser and allows user to draw or clear and predict the number drawn. 
-#### This is just a test file, it will be adapted into Jupyter Notebook with keras and model training in the next development stages.
 
 ### For personal use
 Command for Ubuntu Terminal - cd /, then cd mnt/c/users/moech/desktop/4thYear/EmerTech/PythonTest, then python3 flaskr.py and open up Localhost:5000. 
