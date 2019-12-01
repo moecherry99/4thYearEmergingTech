@@ -1,26 +1,17 @@
 # Emerging Technologies Project
 ## By Alex Cherry - G00347106
 
-### keras
-Neural networks created with keras (and Tensorflow). Jupyter Notebook uses keras to train the model created here (as seen in the model.ipynb file).
+This project is to create a Neural Network that recognises Hand-Written Digits from the user. You must design and train your own model in Jupyter Notebook using the MNIST dataset. This is done using the TensorFlow and Keras packages. The image drawn by the user in the Front End after the application is loaded should be processed as a 64-bit image and then sent back to the application and it will read the data in and recognise the digit after it has been trained after looking at the MNIST dataset.
 
-### MNIST
-Researched MNIST with C development using the Windows Subsystem (Linux). Reading in files and bytes.
+### How to run
+Navigate to your directory in which the program is downloaded and run "python3 flaskr.py" and head to localhost:5000 and draw your digit.
 
-### pandas
-Managing Databases with a series of exercises, grabbing data from saved files etc. and tutorial videos on how to make your own databases to import into your file.
-
-### Flask
-flaskr.py application paired with a html file called drawingcanvas.html which opens the application in web browser and allows user to draw or clear and predict the number drawn. 
-
-### For personal use
+## For personal use
 Command for Ubuntu Terminal - cd /, then cd mnt/c/users/moech/desktop/4thYear/EmerTech/PythonTest, then python3 flaskr.py and open up Localhost:5000. 
-
-### For user use
-Follow the above instructions while navigating to your directory in which you saved the file and run python3 flaskr.py and then localhost:5000 in browser
 
 ## Errors 
 tensorflowjs-converter is not recognised. This means that the model.json/model.h5 files were taken from https://github.com/bensonruan/Hand-Written-Digit-Recognition
+
 ### References
 
 Flask running first app (video on YouTube)
