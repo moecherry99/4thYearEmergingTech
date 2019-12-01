@@ -3,7 +3,7 @@
 
 This project is to create a Neural Network that recognises Hand-Written Digits from the user. You must design and train your own model in Jupyter Notebook using the MNIST dataset. This is done using the TensorFlow and Keras packages. The image drawn by the user in the Front End after the application is loaded should be processed as a 64-bit image and then sent back to the application and it will read the data in and recognise the digit after it has been trained after looking at the MNIST dataset.
 
-### How to run
+## How to run
 Navigate to your directory in which the program is downloaded and run "python3 flaskr.py" and head to localhost:5000 and draw your digit.
 
 ## For personal use
