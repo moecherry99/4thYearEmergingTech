@@ -12,7 +12,12 @@
 
 			h1 {
 				color: navy;
-				margin-left: 20px;
+				text-align: center;
+			}
+			
+			p {
+				text-align : center;
+				font-size : 20px;
 			}
 
 			#predict-button {
@@ -27,6 +32,7 @@
 				border: 2px solid black;
 				border-radius: 10px;
 				transition-duration: 0.4s;
+				
 			}
 
 			#predict-button:hover{
@@ -46,6 +52,7 @@
 				border: 2px solid black;
 				border-radius: 10px;
 				transition-duration: 0.4s;
+				
 			}
 			#clear-button:hover{
 				background-color: red;
@@ -54,8 +61,24 @@
 
 			#prediction-text{
 				font-size: 2em;
-				text-align: right;
+				text-align: center;
 			}
+			
+			#canvas_box{
+				float: center;
+				width: 19.7%;
+				margin: auto;
+				
+			}
+			.canvas-box{
+				border:4px solid red;	
+			
+			}
+			
+			.space{
+			padding: 0.8%;
+			}
+
 		</style>	
 	</head>
 	
@@ -64,15 +87,26 @@
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
 
     <body>
+	
+		<h1>Hand Written Digit Recognition</h1>
+		<p> How to use : Simply draw a digit with your mouse left-click and let go when you want
+		to finish drawing the digit. </p><p>Only recognises single digits, not double digits or higher.</p>
+		<!--<p>The program works by using Keras, TensorFlow, Flask and Python. </p>
+		<p>The Model for recognising the digits was made in Jupyter Notebook </p>
+		<p>with the Keras and TensorFlow packages. It is then converted to </p>
+		<p>Json format with TensorFlow JavaScript converter (tfjs) and read in </p>
+		<p>by the Flask app and the Javascript. </p>-->
 
 		<!-- Divs for Canvas and Buttons-->
-		<div id="canvas_box" class="canvas-box" style = "position:absolute; top:30%; left:39%"></div>
-		<button id="predict-button" class="btn btn-dark" style = "position:absolute; top:80%; left: 40%">Predict</button>
-		<button id="clear-button" style = "position:absolute; top:80%; left: 50%">Clear</button>
+
+		<div id="canvas_box" class="canvas-box"></div>
+		<div id="extra_space" class ="space"></div>
+		<button id="predict-button" class="btn btn-dark" style = "position:relative;  left: 42%">Predict</button>
+		<button id="clear-button" style = "position:relative;  left: 43%">Clear</button>
 		<div id="text-positioner">
-			<p id = "prediction-text" style = "position:absolute; top:85%; left: 39%">Number Prediction:  </p>
+			<p id = "prediction-text" style = "position:relative; ">Number Prediction:  </p>
 		</div>
-		
+
 		<!-- Digit Recognition Script -->
 		<script src="js/digit-recognition.js"></script>
 		
@@ -129,6 +163,8 @@
 			drawOnCanvas();
 		});
  
+		// touch start, recognising when we start clicking
+		// gets the position of where we started clicking
 		canvas.addEventListener("touchstart", function (e) {
 			if (e.target == canvas) {
 				e.preventDefault();
