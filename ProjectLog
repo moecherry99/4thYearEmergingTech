@@ -78,6 +78,13 @@ TO DO - Comments on other files, canvas update.
 -All comments updated, JupyNB uploaded correctly with comments and canvas has been properly applied. 
 -A better canvas could be designed if necessary for good user Front End.
 
+6th December
+-Updating all files, making new model to show process of making .h5 file and tfjs converter although they don't work.
+-Showing knowledge of converting image drawn on canvas into a 64 base image and greyscale then send back, also not working so used binary files from tfjs converter instead.
+-Tried to add graph to display number and accuracy but did not work.
+
+-h5 file working now, uploading properly.
+
 
 
 
