@@ -9,10 +9,6 @@ Navigate to your directory in which the program is downloaded and run "python3 f
 ## For personal use
 Command for Ubuntu Terminal - cd /, then cd mnt/c/users/moech/desktop/4thYear/EmerTech/PythonTest, then python3 flaskr.py and open up Localhost:5000. 
 
-## Errors 
-tensorflowjs-converter is not recognised. This means that the model.json file was taken from https://github.com/bensonruan/Hand-Written-Digit-Recognition
-
-
 ### References
 
 Flask running first app (video on YouTube)
